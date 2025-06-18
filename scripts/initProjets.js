@@ -5,7 +5,7 @@ const projets = new Projets();
 const damsoV1Projet = new Projet(
     "Damso",
     "Mon premier projet web, réalisé en autonomie au lycée. À l'effigie d'un artiste musical, il était surtout un prétexte pour se lancer dans un projet web responsive, utilisant les technologies HTML et CSS uniquement.",
-    ["../images/dems1.png","../images/dems2.png","../images/dems3.png"],
+    ["./images/dems1.png","./images/dems2.png","./images/dems3.png"],
     ["Html","Css"],
     "Web",
     "2022-06-01",
@@ -15,7 +15,7 @@ const damsoV1Projet = new Projet(
 const gestionEspaceAerienProjet = new Projet(
     "Gestion de l'espace aérien français",
     "Cette application en ligne de commande a été réalisée en C, elle visait à lire des fichiers contenant plusieurs informations sur une liste des vols et à les exploiter. Même si plusieurs fonctionnalités ne sont pas fonctionnelles, ce projet a été important dans mon apprentissage du C et des langages de programmation de façon générale.",
-    ["../images/avion.png","../images/avion2.png","../images/avion3.png"],
+    ["./images/avion.png","./images/avion2.png","./images/avion3.png"],
     ["Java","Git"],
     "Java",
     "2023-11-01",
@@ -25,7 +25,7 @@ const gestionEspaceAerienProjet = new Projet(
 const aichikier = new Projet(
     "Aichikier",
     "Un site d'échecs en ligne utilisant les technologies PHP, JS, HTML, CSS ainsi qu'une base de données MySQL. Ce projet, réalisé par une équipe de 4 personnes, comprend la gestion d'utilisateur ainsi que 3 modes de jeux, le jeu en ligne étant en cours de développement.",
-    ["../images/aichikier1.png","../images/aichikier2.png","../images/aichikier3.png"],
+    ["./images/aichikier1.png","./images/aichikier2.png","./images/aichikier3.png"],
     ["Html","Css","JavaScript","Php","Git"],
     "Web",
     "2024-10-01",
@@ -35,7 +35,7 @@ const aichikier = new Projet(
 const ciraTech = new Projet(
     "Stage chez Cira Technologie : Bora",
     "Dans ce projet, j'ai été le responsable de la création d'une application web. J'ai donc dû me charger de nombreux aspects du développement web, de la partie back-end à la partie front-end, en passant par la configuration du serveur, etc. Cette application est destinée aux employés de l'entreprise pour numériser l'ensemble des processus internes qui sont actuellement sur papier, ainsi que la centralisation de toutes les informations relatives à l'entreprise. Le projet a un véritable enjeu pour celle-ci, les traitements de formulaire papier, que ce soit pour les demandes de travaux ou encore la déclaration des heures de travail des employés, prennent énormément de temps à l'entreprise. Numériser ces processus est un besoin pour elle.",
-    ["../images/bora.png","../images/bora2.png","../images/bora3.png"],
+    ["./images/bora.png","./images/bora2.png","./images/bora3.png"],
     ["Html","Css","JavaScript","Php","Git","PostgreSQL","C"],
     "Web",
     "2025-04-14",
