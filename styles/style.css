@@ -1,0 +1,387 @@
+/*Couleurs utilisées*/
+:root{
+    --couleur-primaire-100 : #E0E3FF;
+    --couleur-primaire-300 : #7D4FFE;
+    --couleur-primaire-500 : #473198;
+    --couleur-primaire-900 : #040303;
+}
+
+/*Enlever la padding et margin par défaut*/
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: var(--couleur-primaire-100);
+    font-family: Verdana, sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-flow: column nowrap;
+}
+
+main{
+    flex-grow: 1;
+}
+
+h1{
+    text-align: center;
+    font-size: clamp(1.2em,5vw,2em);
+}
+
+h1:not(#mainAccueil h1){
+    flex-grow: 1;
+    margin-bottom: 1em;
+    padding: 1em;
+    border-bottom: 2px solid black;
+    background-color: white;
+    order: -1;
+}
+
+h2{
+    color: var(--couleur-primaire-500);
+    font-size: clamp(1em,4vw,1.8em);
+    text-align: center;
+}
+
+h3{
+    color: var(--couleur-primaire-900);
+    font-size: clamp(1em,3vw,1.5em);
+    text-align: center;
+}
+
+p{
+    font-size: clamp(0.8em,2vw,1.2em);
+    color: var(--couleur-primaire-300);
+}
+
+a{
+    text-decoration: none;
+}
+
+/*Main accueil*/
+#mainAccueil{
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+    padding: 2em 0;
+}
+
+#mainAccueil #presentation{
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 1em;
+    padding: 1em;
+}
+
+#mainAccueil #presentation #portrait,
+#mainAccueil #presentation #paraPresentation
+{
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+#mainAccueil #presentation video{
+    border-radius: 50%;
+    max-width: 70%;
+    align-self: center;
+}
+
+#mainAccueil #presentation h1{
+    font-size: clamp(1.5em,5vw,3em);
+}
+
+#mainAccueil #presentation p{
+    text-align: center;
+}
+
+#mainAccueil>a{
+    font-size: clamp(1.2em,4vw,1.5em);
+    font-weight: bold;
+    background: linear-gradient(90deg, red, orange, yellow, cyan, blue, violet, red);
+    background-size: 400%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: rainbow 5s linear infinite;
+    margin: 1em 0;
+}
+
+#mainAccueil #contact{
+    width: 100%;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5em;
+    margin: 2em 0;
+}
+
+#mainAccueil #contact img{
+    max-width: 2em;
+}
+
+@keyframes rainbow{
+    0%{
+        background-position: 0% 50%;
+    }
+
+    100%{
+        background-position: 100% 50%;
+    }
+}
+
+/*Nav bar*/
+nav{
+    min-height: 10vh;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    position: sticky;
+    top:0;
+    background-color: var(--couleur-primaire-100);
+    border-bottom: 2px solid black;
+}
+
+nav a img{
+    max-width: 40px;
+}
+
+
+/*Main projet*/
+#mainProjets{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: stretch;
+    flex-wrap: wrap;
+    margin-bottom: 1.5em;
+    position: relative;
+}
+
+#mainProjets h1{
+    width: 100%;
+    /* position: sticky;
+    top: 0;
+    z-index: 1000; */
+}
+
+/*Couleur pour le texte et les paragraphes et règles générales*/
+
+#mainProjets p{
+    margin: 1em 0;
+    text-align: center;
+}
+
+/*Css d'une zone d'un projet*/
+.divProjet{
+    width: 100%;
+    padding: 1em;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+/*class affichage pour afficher le projet en premier en grand*/
+.divProjet.affichage{
+    order: -1;
+    margin-bottom: 2em;
+    min-width: 80%;
+}
+
+/*description et compétences par défaut invisibles, visible après un clic sur la zone du projet*/
+
+.divProjet>p.invisible,.divProjet>ul.invisible{
+    display: none;
+}
+
+/*div en-tête*/
+.divEntete{
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+}
+
+/*animation contour*/
+.divImg{
+    margin-bottom: 1em;
+    position: relative;
+}
+
+.sliderContainer{
+    overflow:hidden;
+}
+
+.sliderContainer>div{
+    display: flex;
+}
+
+@property --angle{
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+}
+
+.notFocus .sliderContainer>div::after,.notFocus .sliderContainer>div::before{
+    content: "";
+    position:absolute;
+    height: 100%;
+    width: 100%;
+    background-image: conic-gradient(from var(--angle), transparent 70%,var(--couleur-primaire-900));
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    z-index: -1;
+    padding: 3px;
+    border-radius: 2rem;
+    animation: 3s spin linear infinite;
+}
+
+@keyframes spin{
+    from{
+        --angle:0deg;
+    }
+    to{
+        --angle:360deg;
+    }
+}
+
+.notFocus .sliderContainer>div::before{
+    filter:blur(1.5rem);
+    opacity: 0.5;
+}
+
+/*slider*/
+
+.slider .sliderContainer>div{
+    animation: sliderImg 12s infinite ease-in-out;
+}
+
+.divProjet img{
+    width: 100%;
+    height: 20vw;
+    min-height: 150px;
+    border-radius: 2rem;
+    object-fit: cover;
+    flex-shrink: 0;
+    position: relative;
+}
+
+/*
+8.33% par transition
+8.33*3 images = 25%
+75%/3=25%
+*/
+@keyframes sliderImg{
+    0%,
+    25%{
+        transform : translateX(0);
+    }
+    33.34%,
+    58.34%{
+        transform : translateX(-100%);
+    }
+    66.67%,
+    91.67%{
+        transform : translateX(-200%);
+    }
+    100%{
+        transform : translateX(-300%);
+    }
+}
+
+
+/*Affichage manuel d'une image*/
+.affichageImage{
+    position: absolute;
+    max-width: 60%;
+    z-index: 10;
+    justify-self: center;
+    margin: 10rem;
+    border-radius: 1.5em;
+}
+
+.affichageImage img{
+    width: 100%;
+}
+
+.affichageImage>div{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    justify-self: center;
+    z-index: 100;
+}
+
+/*Liste des compétences*/
+.divProjet ul{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.5em;
+}
+
+.divProjet li{
+    padding: 1.5em 0;
+    color: white;
+    border-radius: 1.5em;
+    font-size: clamp(0.7em,2vw,1em);
+    list-style: none;
+    text-align: center;
+    flex: 0 0 45%;
+    background-color: var(--couleur-primaire-900);
+}
+
+.divProjet li{
+    background-color: var(--couleur-primaire-900);
+}
+
+.divProjet li:nth-child(3n + 1){
+    background-color: var(--couleur-primaire-500);
+}
+
+/*media queries*/
+@media screen and (min-width:600px) {
+
+    /*Main accueil*/
+    #mainAccueil #presentation{
+        flex-direction: row;
+        padding: 3em;
+        justify-content: center;
+        align-items: center;
+        gap: 3em;
+    }
+
+    #mainAccueil #presentation #portrait{
+        align-self: start
+    }
+
+    #mainAccueil #presentation #paraPresentation{
+        max-width: 40%;
+    }
+
+
+    /*Nav bar*/*
+    nav{
+        position: sticky;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 12vh;
+    }
+
+    /*Projets*/
+    .divProjet{
+        flex: 1 0 35%;
+    }
+
+    .divProjet.affichage {
+        min-width: 75%;
+    }
+}
